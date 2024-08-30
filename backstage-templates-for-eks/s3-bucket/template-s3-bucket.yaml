@@ -48,7 +48,7 @@ spec:
       input:
         description: Example S3 Bucket demo
         # Hard coded value for this demo purposes only.
-        repoUrl: https://gitea.elamaras.people.aws.dev/gitea?repo=${{parameters.name}}
+        repoUrl: gitea.elamaras.people.aws.dev/gitea?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
       name: Create ArgoCD App
