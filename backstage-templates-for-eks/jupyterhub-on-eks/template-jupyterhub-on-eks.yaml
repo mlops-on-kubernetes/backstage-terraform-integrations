@@ -83,7 +83,7 @@ spec:
       input:
         description: Example JupyterHub demo
         # Hard coded value for this demo purposes only.
-        repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000/?repo=${{parameters.name}}
+        repoUrl: gitea.elamaras.people.aws.dev/?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
       name: Create ArgoCD App
