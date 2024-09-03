@@ -30,6 +30,10 @@ spec:
           default: flux-system
           title: Existing namespace to create this resource
           type: string
+        repoUrl:
+          default: gitea.elamaras.people.aws.dev
+          title: Repo URL of your Gitea Repo integrated with Backstage
+          type: string
       title: Configuration options
   steps:
     - action: fetch:template
@@ -48,7 +52,7 @@ spec:
       input:
         description: Example S3 Bucket demo
         # Hard coded value for this demo purposes only.
-        # repoUrl: gitea.elamaras.people.aws.dev?repo=${{parameters.name}}
+        repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
         # repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
