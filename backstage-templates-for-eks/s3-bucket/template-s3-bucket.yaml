@@ -53,7 +53,7 @@ spec:
         description: Example S3 Bucket demo
         # Hard coded value for this demo purposes only.
         repoUrl: cnoe-dca928f81e2f02c8.elb.us-west-2.amazonaws.com/gitea?repo=${{parameters.name}}
-        //repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
+        # repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
         # repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
