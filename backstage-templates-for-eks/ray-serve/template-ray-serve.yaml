@@ -44,7 +44,7 @@ spec:
       action: cnoe:create-argocd-app
       input:
         appName: ${{parameters.name}}
-        appNamespace: ${{parameters.name}}
+        appNamespace: ray
         argoInstance: in-cluster
         projectName: default
         repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000/giteaAdmin/${{parameters.name}}
