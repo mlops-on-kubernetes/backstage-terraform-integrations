@@ -22,7 +22,6 @@ spec:
               parameters:
                 - name: spark-job-name
                   value: '{{steps.spark-job.outputs.parameters.spark-job-name}}'
-
     - name: wait
       inputs:
         parameters:
