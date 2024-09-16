@@ -51,9 +51,7 @@ spec:
       action: publish:gitea
       input:
         description: Example S3 Bucket demo
-        # Hard coded value for this demo purposes only.
         repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
-        # repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
       name: Create ArgoCD App
@@ -63,7 +61,6 @@ spec:
         appNamespace: ${{parameters.namespace}}
         argoInstance: in-cluster
         projectName: default
-        # necessary until we generate our own cert
         repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000/giteaAdmin/${{parameters.name}}
         path: "manifests"
     - id: register

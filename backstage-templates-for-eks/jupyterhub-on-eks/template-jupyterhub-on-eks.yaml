@@ -64,6 +64,10 @@ spec:
           default: flux-system
           title: namespace within the kubernetes cluster to deploy this
           type: string
+        repoUrl:
+          default: gitea.elamaras.people.aws.dev
+          title: Repo URL of your Gitea Repo integrated with Backstage
+          type: string
       title: Configuration Options
   steps:
     - id: fetch-base
@@ -82,8 +86,7 @@ spec:
       action: publish:gitea
       input:
         description: Example JupyterHub demo
-        # Hard coded value for this demo purposes only.
-        repoUrl: gitea.elamaras.people.aws.dev?repo=${{parameters.name}}
+        repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
       name: Create ArgoCD App
@@ -93,7 +96,6 @@ spec:
         appNamespace: ${{parameters.namespace}}
         argoInstance: in-cluster
         projectName: default
-        # necessary until we generate our own cert
         repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000/giteaAdmin/${{parameters.name}}
         path: "manifests"
     - id: register

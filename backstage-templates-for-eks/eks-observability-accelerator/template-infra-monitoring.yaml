@@ -50,6 +50,10 @@ spec:
           default: flux-system
           title: namespace within the kubernetes cluster to deploy this
           type: string
+        repoUrl:
+          default: gitea.elamaras.people.aws.dev
+          title: Repo URL of your Gitea Repo integrated with Backstage
+          type: string
       title: Configuration Options
   steps:
     - action: fetch:template
@@ -68,8 +72,7 @@ spec:
       action: publish:gitea
       input:
         description: Example EKS Observability Accelerator demo
-        # Hard coded value for this demo purposes only.
-        repoUrl: cnoe.localtest.me:8443/gitea?repo=${{parameters.name}}
+        repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
       name: Create ArgoCD App
@@ -79,7 +82,6 @@ spec:
         appNamespace: ${{parameters.namespace}}
         argoInstance: in-cluster
         projectName: default
-        # necessary until we generate our own cert
         repoUrl: http://my-gitea-http.gitea.svc.cluster.local:3000/giteaAdmin/${{parameters.name}}
         path: "manifests"
     - id: register
