@@ -13,3 +13,4 @@ spec:
     - ./eks-stateful-workload/template-stateful-workload.yaml
     - ./eks-cost-monitoring/template-cost-monitoring.yaml
     - ./eks-istio/template-istio.yaml
+    - ./spark-job/template-spark-job.yaml
