@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  description: Creates a Ray Job on EKS
-  name: ray-job-sample
-  title: Ray Job on EKS
+  description: Creates Ray Job on Kubernetes
+  name: ray-job-kubernetes
+  title: Ray Job on Kubernetes
 spec:
   owner: guest
   type: service
