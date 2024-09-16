@@ -4,5 +4,4 @@ metadata:
   name: "ray-job-code-${{values.name}}"
 data:
   python-code.py: |
-    ${{ values.ray-job-file }}
-    ${{ values.name }}
+    ${{ values.rayJobFile }}

@@ -15,7 +15,7 @@ spec:
         name:
           type: string
           description: Name of this Ray Job
-        ray-job-file:
+        rayJobFile:
           type: string
           default: "https://raw.githubusercontent.com/elamaran11/backstage-terraform-integrations/main/backstage-templates-for-eks/ray-job/sample/pytorch-sample.py"
           description: Path to your Python script
@@ -31,6 +31,7 @@ spec:
         url: ./skeleton
         values:
           name: ${{parameters.name}}
+          rayJobFile:  ${{parameters.rayJobFile}}
     - id: publish
       name: Publishing to a gitea git repository
       action: publish:gitea
