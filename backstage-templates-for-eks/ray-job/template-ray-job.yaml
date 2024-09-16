@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   description: Creates a Ray Job on EKS
-  name: argo-workflows-basic
+  name: ray-job-sample
   title: Ray Job on EKS
 spec:
   owner: guest
