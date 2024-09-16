@@ -17,7 +17,7 @@ spec:
           description: Name of this Ray Job
         rayJobFile:
           type: string
-          default: https://raw.githubusercontent.com/elamaran11/backstage-terraform-integrations/main/backstage-templates-for-eks/ray-job/sample/pytorch-sample.py
+          default: "https://raw.githubusercontent.com/elamaran11/backstage-terraform-integrations/main/backstage-templates-for-eks/ray-job/sample/pytorch-sample.py"
           description: Path to your Python script
         repoUrl:
           default: gitea.elamaras.people.aws.dev

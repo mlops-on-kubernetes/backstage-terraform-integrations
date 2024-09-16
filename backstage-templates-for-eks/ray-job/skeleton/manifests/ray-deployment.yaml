@@ -1,7 +1,7 @@
 apiVersion: ray.io/v1
 kind: RayJob
 metadata:
-  name: rayjob-crd-sample
+  name: "rayjob-${{values.name}}"
   namespace: ray
 spec:
   entrypoint: python /opt/script/python-code.py
@@ -43,7 +43,7 @@ spec:
           volumes:
             - name: training-script
               configMap:
-                name: ray-job-code
+                name: "ray-job-code-${{values.name}}"
                 items:
                   - key: python-code.py
                     path: python-code.py
