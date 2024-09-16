@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "ray-job-code-${{values.name}}"
-data:
-  python-code.py: |
-    ${{ values.rayJobFile }}

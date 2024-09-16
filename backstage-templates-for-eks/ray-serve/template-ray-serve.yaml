@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  description: Creates Ray Job on Kubernetes
-  name: ray-job-kubernetes
-  title: Ray Job on Kubernetes
+  description: Creates Ray Service on Kubernetes
+  name: ray-serve-kubernetes
+  title: Ray Service on Kubernetes
 spec:
   owner: guest
   type: service
@@ -14,11 +14,11 @@ spec:
       properties:
         name:
           type: string
-          description: Name of this Ray Job
-        rayJobFile:
+          description: Name of this Ray Service
+        rayServeFile:
           type: string
-          default: "https://raw.githubusercontent.com/elamaran11/backstage-terraform-integrations/main/backstage-templates-for-eks/ray-job/sample/pytorch-sample.py"
-          description: Path to your Python script
+          default: "https://github.com/mlops-on-kubernetes/Book/raw/main/Chapter%206/serve-config.zip"
+          description: Path to your Ray Service Multi-application config zip file
         repoUrl:
           default: gitea.elamaras.people.aws.dev
           title: Repo URL of your Gitea Repo integrated with Backstage
@@ -31,12 +31,12 @@ spec:
         url: ./skeleton
         values:
           name: ${{parameters.name}}
-          rayJobFile:  ${{parameters.rayJobFile}}
+          rayServeFile:  ${{parameters.rayServeFile}}
     - id: publish
       name: Publishing to a gitea git repository
       action: publish:gitea
       input:
-        description: This is an example app
+        description: This is an Ray Serve app Repo
         repoUrl: ${{parameters.repoUrl}}?repo=${{parameters.name}}
         defaultBranch: main
     - id: create-argocd-app
