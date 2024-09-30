@@ -5,8 +5,7 @@ metadata:
   description: S3 Bucket for ${{ values.name }}
   annotations:
     backstage.io/kubernetes-namespace: ${{values.namespace}}
-    argo-workflows.cnoe.io/label-selector: env=dev,entity-id=${{values.name}}
-    argo-workflows.cnoe.io/cluster-name: local
+    argocd/app-name: ${{values.name | dump}}
 spec:
   type: s3-bucket
   lifecycle: experimental
