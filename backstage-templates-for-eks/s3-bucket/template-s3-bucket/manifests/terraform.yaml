@@ -33,8 +33,3 @@ spec:
     outputs:
       - arn
       - bucket
-  runnerPodTemplate:
-    spec:
-      envFrom:
-        - secretRef:
-            name: aws-credentials
